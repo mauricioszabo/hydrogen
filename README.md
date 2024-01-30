@@ -53,8 +53,8 @@ You also may be interested in our latest project – [nteract](https://github.co
 
 Hydron has support for plugins. Feel free to add your own to the list:
 
-- [Hydron Launcher](https://github.com/lgeiger/hydron-launcher): launches terminals and Jupyter consoles connected to Hydron
-- [hydron-python](https://github.com/nikitakit/hydron-python): provides various Python-specific features
+- [Hydrogen Launcher](https://github.com/lgeiger/hydrogen-launcher): launches terminals and Jupyter consoles connected to Hydron
+- [hydrogen-python](https://github.com/nikitakit/hydrogen-python): provides various Python-specific features
 - [Data Explorer](https://github.com/BenRussert/data-explorer): allows you to use [nteract data-explorer](https://github.com/BenRussert/data-explorer) within Hydron
 
 If you are interested in building a plugin take a look at our [plugin API documentation](https://nteract.gitbooks.io/hydron/docs/PluginAPI.html).
@@ -65,7 +65,7 @@ Here is a list of external packages that could be useful when using Hydron (with
 
 - [markdown-cell-highlight](https://github.com/aviatesk/atom-markdown-cell-highlight): highlights code cells in markdown files
 - [Cell Navigation](https://github.com/hoishing/cell-navigation): enables easy jumps between Hydron code cells
-- [Hydron Cell Separator](https://github.com/jhabriel/hydron-cell-separator): gives simple horizontal line decorations for Hydron code cells
+- [Hydrogen Cell Separator](https://github.com/jhabriel/hydrogen-cell-separator): gives simple horizontal line decorations for Hydron code cells
 
 If you find/create a package that you think can be useful when used in combination with Hydron, feel free to make a PR and add it.
 
@@ -75,7 +75,11 @@ Hydron implements the [messaging protocol](http://jupyter-client.readthedocs.io/
 
 ## Why "Hydron"?
 
-Hydron atoms make up 90% of Jupiter by volume.
+Hydrogen atoms make up 90% of Jupiter by volume.
+
+Unfortunately, Hydrogen (the original plug-in) sunsetted with Atom, and was never published to the Pulsar repository; also, some changes would be needed to make it work with newest Electron branches.
+
+Hydron is a Cation (a positively-charged hydrogen atom) represented by Symbol H<sup>+</sup>. Feel free to guess the rest :)
 
 Plus, it was easy to make a logo.
 
