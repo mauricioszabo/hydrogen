@@ -9,4 +9,4 @@ The types for these folders should be removed once their corresponding pull requ
 
 ### Types to upstream
 
-- Atom
+- Pulsar

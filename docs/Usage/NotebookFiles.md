@@ -6,7 +6,7 @@ Access the import and export commands by opening the [command palette](https://f
 
 ## Notebook Import
 
-Run **`Hydron: Import Notebook`** and select the desired notebook file in the file browser that opens. That's it! The file will be imported into a new Atom tab as a new file, using [Cell Markers](Cells.md#cell-markers) to delimit the individual code and markdown blocks. If you also wish to view your previous cell results, then make sure **"Enable Import of Notebook Results"** is checked in Hydron's package settings.
+Run **`Hydron: Import Notebook`** and select the desired notebook file in the file browser that opens. That's it! The file will be imported into a new Pulsar tab as a new file, using [Cell Markers](Cells.md#cell-markers) to delimit the individual code and markdown blocks. If you also wish to view your previous cell results, then make sure **"Enable Import of Notebook Results"** is checked in Hydron's package settings.
 
 **Note:** In order for Hydron to automatically find the corresponding syntax highlighting package for a given programming language, your notebook file must contain the proper metadata and your grammar package of choice must be installed and active.
 

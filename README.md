@@ -8,22 +8,6 @@ Checkout our [Documentation](https://nteract.gitbooks.io/hydron/) and [Medium bl
 
 ![hero](https://cloud.githubusercontent.com/assets/13285808/20360886/7e03e524-ac03-11e6-9176-37677f226619.gif)
 
-# Atom Sunset Notice
-
-Atom is [sunsetted](https://github.blog/2022-06-08-sunsetting-atom/).  It is not possible to publish new packages anymore. If you have Atom working offline locally, it should continue to work, but the servers are down.
-
-You can export `ipynb` from Hydron using [this method](https://github.com/nteract/hydron/blob/master/docs/Usage/NotebookFiles.md#notebook-export) and migrate to the following alternatives:
-
-- Nteract, which is directly inspired by Hydron. 
-https://nteract.io/
-
-- VsCode with its Jupyter integration
-https://code.visualstudio.com/docs/datascience/jupyter-notebooks
-
-- Pycharm with Jupyter Notebook integration
-https://www.jetbrains.com/pycharm/
-
-
 ## Contents
 
 1. [Background](#background)
@@ -38,7 +22,7 @@ https://www.jetbrains.com/pycharm/
 
 ## Background
 
-Hydron was inspired by Bret Victor's ideas about the power of instantaneous feedback and the design of [Light Table](http://lighttable.com/). Running code inline and in real time is a more natural way to develop. By bringing the interactive style of Light Table to the rock-solid usability of Atom, Hydron makes it easy to write code the way you want to.
+Hydron was inspired by Bret Victor's ideas about the power of instantaneous feedback and the design of [Light Table](http://lighttable.com/). Running code inline and in real time is a more natural way to develop. By bringing the interactive style of Light Table to the rock-solid usability of Pulsar, Hydron makes it easy to write code the way you want to.
 
 You also may be interested in our latest project – [nteract](https://github.com/nteract/nteract) – a desktop application that wraps up the best of the web based Jupyter notebook.
 

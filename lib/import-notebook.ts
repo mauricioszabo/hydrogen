@@ -37,7 +37,7 @@ export function ipynbOpener(uri: string) {
  * to import. Otherwise it will ask the user to chose a valid file for Hydron
  * to import. Then it loads the notebook.
  *
- * @param {Event} event - Atom Event from clicking in a treeview.
+ * @param {Event} event - Pulsar Event from clicking in a treeview.
  */
 export function importNotebook(event?: CustomEvent) {
   // Use selected filepath if called from tree-view context menu
@@ -155,9 +155,9 @@ export async function _loadNotebook(
 }
 
 /**
- * Tries to determine the Atom Grammar of a notebook. Default is Python.
+ * Tries to determine the Pulsar Grammar of a notebook. Default is Python.
  *
- * @param {Notebook} nb - The Notebook to determine the Atom Grammar of.
+ * @param {Notebook} nb - The Notebook to determine the Pulsar Grammar of.
  * @returns {Grammar} - The grammar of the notebook.
  */
 function getGrammarForNotebook(nb: Notebook) {
@@ -226,10 +226,10 @@ function getGrammarForNotebook(nb: Notebook) {
 }
 
 /**
- * Tries to find a matching Atom Grammar from a language name
+ * Tries to find a matching Pulsar Grammar from a language name
  *
  * @param {String} name - The language name to find a grammar for.
- * @returns {Grammar} - The matching Atom Grammar.
+ * @returns {Grammar} - The matching Pulsar Grammar.
  */
 function getGrammarForLanguageName(name: string) {
   if (!name) {
@@ -253,10 +253,10 @@ function getGrammarForLanguageName(name: string) {
 }
 
 /**
- * Tries to find a matching Atom Grammar from a file extensions
+ * Tries to find a matching Pulsar Grammar from a file extensions
  *
  * @param {String} ext - The file extension to find a grammar for.
- * @returns {Grammar} - The matching Atom Grammar.
+ * @returns {Grammar} - The matching Pulsar Grammar.
  */
 function getGrammarForFileExtension(ext: string): Grammar | null | undefined {
   if (!ext) {
@@ -270,18 +270,18 @@ function getGrammarForFileExtension(ext: string): Grammar | null | undefined {
 }
 
 /**
- * Tries to find a matching Atom Grammar from KernelspecMetadata name
+ * Tries to find a matching Pulsar Grammar from KernelspecMetadata name
  *
  * @param {String} name - The KernelspecMetadata name to find a grammar for.
- * @returns {Grammar} - The matching Atom Grammar.
+ * @returns {Grammar} - The matching Pulsar Grammar.
  */
 function getGrammarForKernelspecName(name: string): Grammar | null | undefined {
-  // Check if there exists an Atom grammar named source.${name}
+  // Check if there exists an Pulsar grammar named source.${name}
   const grammar = getGrammarForLanguageName(name);
   if (grammar) {
     return grammar;
   }
-  // Otherwise attempt manual matching from kernelspec name to Atom scope
+  // Otherwise attempt manual matching from kernelspec name to Pulsar scope
   const crosswalk = {
     python2: "source.python",
     python3: "source.python",

@@ -1,8 +1,8 @@
 # Installation
 
-Hydron requires **[Atom](https://atom.io/)** `1.20.0+` and **[kernels](#kernels)** for the languages you intend to use Hydron with.
+Hydron requires **[Pulsar](https://atom.io/)** `1.20.0+` and **[kernels](#kernels)** for the languages you intend to use Hydron with.
 
-To install Hydron run `apm install hydron` or search for _Hydron_ in the Install pane of the Atom settings.
+To install Hydron run `apm install hydron` or search for _Hydron_ in the Install pane of the Pulsar settings.
 
 If you are using Linux 32-bit follow the installation instructions [here](Troubleshooting.md).
 

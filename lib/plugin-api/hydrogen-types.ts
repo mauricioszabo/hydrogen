@@ -1,4 +1,4 @@
-// These type definitions live in their own file because Atom can't parse the
+// These type definitions live in their own file because Pulsar can't parse the
 // syntax used here. Note that these types do not depend on anything internal
 // to Hydron, which should allow the typechecker to notice if any internal
 // changes are not accompanied by appropriate compatibility changes to the

@@ -35,7 +35,7 @@ or when you want some feedback!
 
 ### Running specs
 
-You can run specs by triggering the `window:run-package-specs` command in Atom. To run tests on the command line use `apm test` within the package directory.
+You can run specs by triggering the `window:run-package-specs` command in Pulsar. To run tests on the command line use `apm test` within the package directory.
 
 We use [Jasmine](https://jasmine.github.io/api/3.2/global) for writing specs.
 

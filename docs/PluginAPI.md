@@ -6,10 +6,10 @@ Version: 1.0.0
 
 The Plugin API allows you to make Hydron awesome.
 You will be able to interact with this class in your Hydron Plugin using
-Atom's [Service API](http://blog.atom.io/2015/03/25/new-services-API.html).
+Pulsar's [Service API](http://blog.atom.io/2015/03/25/new-services-API.html).
 
 Take a look at our [Example Plugin](https://github.com/lgeiger/hydron-example-plugin)
-and the [Atom Flight Manual](http://flight-manual.atom.io/hacking-atom/) for
+and the [Pulsar Flight Manual](http://flight-manual.atom.io/hacking-atom/) for
 learning how to interact with Hydron in your own plugin.
 
 ## onDidChangeKernel(Callback)

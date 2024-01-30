@@ -4,7 +4,7 @@
 
 ## Services API
 
-The [Atom Services API](https://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services/) is a way for Atom packages to interact with each other. Hydron both provides and consumes _services_ to add additional features to itself. `./lib/services` is our container folder for anything that functions through the [Atom Services API](https://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services/). If the service is considered a _provided service_, then it is located inside of `./lib/services/provided`. If the service, however, is considered a _consumed service_, then it is located inside of `./lib/services/consumed`.
+The [Pulsar Services API](https://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services/) is a way for Pulsar packages to interact with each other. Hydron both provides and consumes _services_ to add additional features to itself. `./lib/services` is our container folder for anything that functions through the [Pulsar Services API](https://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services/). If the service is considered a _provided service_, then it is located inside of `./lib/services/provided`. If the service, however, is considered a _consumed service_, then it is located inside of `./lib/services/consumed`.
 
 ### Consumed Services
 

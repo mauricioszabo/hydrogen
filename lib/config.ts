@@ -46,7 +46,7 @@ const Config = {
     importNotebookURI: {
       title: "Enable Notebook Auto-import",
       description:
-        "If enabled, opening a file with extension `.ipynb` will [import the notebook](https://nteract.gitbooks.io/hydron/docs/Usage/NotebookFiles.html#notebook-import) file's source into a new tab. If disabled, or if the Hydron package is not activated, the raw file will open in Atom as normal.",
+        "If enabled, opening a file with extension `.ipynb` will [import the notebook](https://nteract.gitbooks.io/hydron/docs/Usage/NotebookFiles.html#notebook-import) file's source into a new tab. If disabled, or if the Hydron package is not activated, the raw file will open in Pulsar as normal.",
       type: "boolean",
       default: true,
       order: 3,
@@ -62,7 +62,7 @@ const Config = {
     statusBarDisable: {
       title: "Disable the Hydron status bar",
       description:
-        "If enabled, no kernel information will be provided in Atom's status bar.",
+        "If enabled, no kernel information will be provided in Pulsar's status bar.",
       type: "boolean",
       default: false,
       order: 5,
@@ -138,7 +138,7 @@ const Config = {
     globalMode: {
       title: "Enable Global Kernel",
       description:
-        "If enabled, all files of the same grammar will share a single global kernel (requires Atom restart)",
+        "If enabled, all files of the same grammar will share a single global kernel (requires Pulsar restart)",
       type: "boolean",
       default: false,
       order: 14,
@@ -178,7 +178,7 @@ const Config = {
       title: "Language Mappings",
       includeTitle: false,
       description:
-        'Custom Atom grammars and some kernels use non-standard language names. That leaves Hydron unable to figure out what kernel to start for your code. This field should be a valid JSON mapping from a kernel language name to Atom\'s grammar name ``` { "kernel name": "grammar name" } ```. For example ``` { "scala211": "scala", "javascript": "babel es6 javascript", "python": "magicpython" } ```.',
+        'Custom Pulsar grammars and some kernels use non-standard language names. That leaves Hydron unable to figure out what kernel to start for your code. This field should be a valid JSON mapping from a kernel language name to Pulsar\'s grammar name ``` { "kernel name": "grammar name" } ```. For example ``` { "scala211": "scala", "javascript": "babel es6 javascript", "python": "magicpython" } ```.',
       type: "string",
       default: '{ "python": "magicpython" }',
       order: 17,

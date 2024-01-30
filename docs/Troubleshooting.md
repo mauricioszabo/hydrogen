@@ -3,7 +3,7 @@
 ## Debugging Guide
 
 Sometimes unexpected things happen.
-In this case, please, open an [Issue](https://github.com/nteract/hydron/issues) and make sure to include the version of Hydron and Atom you are running. You can get this information by running `atom --version` from the command line.
+In this case, please, open an [Issue](https://github.com/nteract/hydron/issues) and make sure to include the version of Hydron and Pulsar you are running. You can get this information by running `atom --version` from the command line.
 
 Please, also include the output or a screenshot of the debug messages. To access the debug messages follow these steps:
 
@@ -34,7 +34,7 @@ If your default `python` is 3.x, you need to run instead `PYTHON=python2.7 apm i
 
 Hydron requires a Kernel to run code. Checkout [nteract.io/kernels](https://nteract.io/kernels) for instructions on how to install the most popular kernels.
 
-Atom won't pick up kernels inside a virtualenv unless Atom is launched as `atom .` within the virtualenv. The alternative is to [create a kernel specifically for a virtualenv](http://www.alfredo.motta.name/create-isolated-jupyter-ipython-kernels-with-pyenv-and-virtualenv/).
+Pulsar won't pick up kernels inside a virtualenv unless Pulsar is launched as `atom .` within the virtualenv. The alternative is to [create a kernel specifically for a virtualenv](http://www.alfredo.motta.name/create-isolated-jupyter-ipython-kernels-with-pyenv-and-virtualenv/).
 
 #### No kernel for grammar `Python` found error on Mac OS
 
@@ -68,7 +68,7 @@ Again, there are a number of possible causes and solutions:
   - solved by upgrading the `jupyter` version (see [this
     comment](https://github.com/nteract/hydron/issues/88#issuecomment-136761769) );
 
-- If Hydron doesn't output any results for Atom version < 1.13 (see issue
+- If Hydron doesn't output any results for Pulsar version < 1.13 (see issue
   [#326](https://github.com/nteract/hydron/issues/326)), check that you haven't disabled
   `Use Shadow DOM` under `Settings > Editor`. This option should be enabled.
 
@@ -78,16 +78,16 @@ Again, there are a number of possible causes and solutions:
   [#53](https://github.com/nteract/hydron/issues/53) the details of your
   installation.
 
-  ## Hydron stopped working after updating Atom
+  ## Hydron stopped working after updating Pulsar
 
-  Whenever your Atom is upgraded, the Hydron package needs to be rebuilt. Atom should prompt you to rebuild Hydron after upgrading. In case it doesn't, you can manually rebuild Hydron from the Panel that opens when executing `Incompatible Packages: View` via the [command palette](https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette).
+  Whenever your Pulsar is upgraded, the Hydron package needs to be rebuilt. Pulsar should prompt you to rebuild Hydron after upgrading. In case it doesn't, you can manually rebuild Hydron from the Panel that opens when executing `Incompatible Packages: View` via the [command palette](https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette).
 
-  You can also access this Panel by clicking on the tiny red bug icon at the bottom right of Atom.
+  You can also access this Panel by clicking on the tiny red bug icon at the bottom right of Pulsar.
 
   ![fullscreen-tiny-bug](https://user-images.githubusercontent.com/10860657/38326862-1c5b9cac-3804-11e8-9c08-7d020650288e.png)
   ![tiny-bug](https://user-images.githubusercontent.com/32625394/38327162-2bfa86a6-380d-11e8-8ff5-aab77393a834.png)
 
-  In case the Atom GUI `Rebuild Packages` button doesn't work, you can try running `apm rebuild hydron` (to rebuild) or `apm install hydron` (to reinstall) in the package directory then restarting Atom to resolve.
+  In case the Pulsar GUI `Rebuild Packages` button doesn't work, you can try running `apm rebuild hydron` (to rebuild) or `apm install hydron` (to reinstall) in the package directory then restarting Pulsar to resolve.
 
 ## Setting environment variables on Windows
 

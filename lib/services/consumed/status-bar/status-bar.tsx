@@ -1,6 +1,6 @@
 import React from "react";
 import { Disposable } from "atom";
-import { StatusBar as AtomStatusBar } from "atom/status-bar";
+import { StatusBar as PulsarStatusBar } from "atom/status-bar";
 import StatusBar from "./status-bar-component";
 import SignalListView from "./signal-list-view";
 import { reactFactory } from "../../../utils";
@@ -11,7 +11,7 @@ export class StatusBarConsumer {
 
   addStatusBar(
     store: Store,
-    statusBar: AtomStatusBar,
+    statusBar: PulsarStatusBar,
     handleKernelCommand: (...args: Array<any>) => any
   ) {
     const statusBarElement = document.createElement("div");

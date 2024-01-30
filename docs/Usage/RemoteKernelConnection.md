@@ -50,7 +50,7 @@ jupyter notebook --port=8888
 
 # Running a notebook server using Docker
 
-You can use the same technique to create a notebook server in a Docker container. That would allow you to develop from Atom but with all the dependencies, autocompletion, environment, etc. of a Docker container.
+You can use the same technique to create a notebook server in a Docker container. That would allow you to develop from Pulsar but with all the dependencies, autocompletion, environment, etc. of a Docker container.
 
 **Note**: due to the way that the notebook creates sub-processes for each kernel, you have to use it in a special way, you can't run the `jupyter notebook` directly in your `Dockerfile` `CMD` section. You need to call it with an init manager such as [**tini**](https://github.com/krallin/tini) or run it from an interactive console.
 
@@ -125,10 +125,10 @@ docker build -t hydro .
 docker run -it --rm --name hydro -p 8888:8888 -e JUYTER_TOKEN=my_secret_token hydro
 ```
 
-## Connect Atom
+## Connect Pulsar
 
 - Add the connection information to the Hydron `gateways` setting, as above. If running locally, you can use `localhost` as the host of your `baseUrl`
-- In Atom, open a Python file
+- In Pulsar, open a Python file
 - Connect to the kernel you just configured: `ctrl-shift-p` and type: `Hydron: Connect To Remote Kernel`
 - Select the kernel gateway you configured, e.g. `Remote server`
 - Select the "type of kernel" to run, there will just be the option `Python 2` or `Python 3`
@@ -137,7 +137,7 @@ docker run -it --rm --name hydro -p 8888:8888 -e JUYTER_TOKEN=my_secret_token hy
 
 ## Testing it
 
-You can test that it is actually working by installing a package in your container that you don't have locally and using it inside your container (from your Atom editor).
+You can test that it is actually working by installing a package in your container that you don't have locally and using it inside your container (from your Pulsar editor).
 
 - For example, install the Python package `markdown` in your `Dockerfile`:
 

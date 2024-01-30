@@ -2,7 +2,7 @@
 
 By default Hydron leans towards plain styling so that its elements can be customized easily to your liking.
 
-Below are some tips to get started with styling Hydron. If you are unfamiliar with this topic there is more detailed information available in the [Atom Flight Manual](http://flight-manual.atom.io/using-atom/sections/basic-customization/#style-tweaks).
+Below are some tips to get started with styling Hydron. If you are unfamiliar with this topic there is more detailed information available in the [Pulsar Flight Manual](http://flight-manual.atom.io/using-atom/sections/basic-customization/#style-tweaks).
 
 Start out by opening your styles.less file or searching your command palette for "stylesheet", you will see atom's: **Application: Open Your Stylesheet** command.
 
