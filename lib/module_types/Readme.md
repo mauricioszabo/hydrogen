@@ -1,4 +1,4 @@
-This folder includes the TypeScript types for the external modules that Hydrogen depends on.
+This folder includes the TypeScript types for the external modules that Hydron depends on.
 
 ### Modules already up-streamed
 

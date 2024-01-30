@@ -70,19 +70,19 @@ function parseCompletions(results: CompleteReply, prefix: string) {
 
 export function provideAutocompleteResults(store: Store): AutocompleteProvider {
   const autocompleteProvider = {
-    enabled: atom.config.get("Hydrogen.autocomplete"),
+    enabled: atom.config.get("Hydron.autocomplete"),
     selector: ".source",
     disableForSelector: ".comment",
     // The default provider has an inclusion priority of 0.
     inclusionPriority: 1,
     // The default provider has a suggestion priority of 1.
     suggestionPriority: atom.config.get(
-      "Hydrogen.autocompleteSuggestionPriority"
+      "Hydron.autocompleteSuggestionPriority"
     ),
     // It won't suppress providers with lower priority.
     excludeLowerPriority: false,
     suggestionDetailsEnabled: atom.config.get(
-      "Hydrogen.showInspectorResultsInAutocomplete"
+      "Hydron.showInspectorResultsInAutocomplete"
     ),
 
     // Required: Return a promise, an array of suggestions, or null.
@@ -174,13 +174,13 @@ export function provideAutocompleteResults(store: Store): AutocompleteProvider {
     },
   };
   store.subscriptions.add(
-    atom.config.observe("Hydrogen.autocomplete", (v) => {
+    atom.config.observe("Hydron.autocomplete", (v) => {
       autocompleteProvider.enabled = v;
     }),
-    atom.config.observe("Hydrogen.autocompleteSuggestionPriority", (v) => {
+    atom.config.observe("Hydron.autocompleteSuggestionPriority", (v) => {
       autocompleteProvider.suggestionPriority = v;
     }),
-    atom.config.observe("Hydrogen.showInspectorResultsInAutocomplete", (v) => {
+    atom.config.observe("Hydron.showInspectorResultsInAutocomplete", (v) => {
       autocompleteProvider.suggestionDetailsEnabled = v;
     })
   );

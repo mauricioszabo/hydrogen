@@ -1,12 +1,12 @@
 import type Kernel from "../kernel";
-import type { HydrogenKernelMiddleware } from "./hydrogen-types";
+import type { HydronKernelMiddleware } from "./hydron-types";
 /*
- * The `HydrogenKernel` class wraps Hydrogen's internal representation of kernels
+ * The `HydronKernel` class wraps Hydron's internal representation of kernels
  * and exposes a small set of methods that should be usable by plugins.
- * @class HydrogenKernel
+ * @class HydronKernel
  */
 
-export default class HydrogenKernel {
+export default class HydronKernel {
   _kernel: Kernel;
   destroyed: boolean;
 
@@ -20,7 +20,7 @@ export default class HydrogenKernel {
     // all API calls should guard against this case
     if (this.destroyed) {
       throw new Error(
-        "HydrogenKernel: operation not allowed because the kernel has been destroyed"
+        "HydronKernel: operation not allowed because the kernel has been destroyed"
       );
     }
   }
@@ -50,9 +50,9 @@ export default class HydrogenKernel {
    * If the methods of a `middleware` object are added/modified/deleted after
    * `addMiddleware` has been called, the changes will take effect immediately.
    *
-   * @param {HydrogenKernelMiddleware} middleware
+   * @param {HydronKernelMiddleware} middleware
    */
-  addMiddleware(middleware: HydrogenKernelMiddleware) {
+  addMiddleware(middleware: HydronKernelMiddleware) {
     this._assertNotDestroyed();
 
     this._kernel.addMiddleware(middleware);

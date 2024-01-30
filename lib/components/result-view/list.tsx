@@ -36,12 +36,12 @@ class ScrollList extends React.Component<Props> {
         className="scroll-list multiline-container native-key-bindings"
         tabIndex={-1}
         style={{
-          fontSize: atom.config.get(`Hydrogen.outputAreaFontSize`) || "inherit",
+          fontSize: atom.config.get(`Hydron.outputAreaFontSize`) || "inherit",
         }}
         ref={(el) => {
           this.el = el;
         }}
-        hydrogen-wrapoutput={atom.config.get(`Hydrogen.wrapOutput`).toString()}
+        hydron-wrapoutput={atom.config.get(`Hydron.wrapOutput`).toString()}
       >
         {this.props.outputs.map((output, index) => (
           <div className="scroll-list-item">

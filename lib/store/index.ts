@@ -29,7 +29,7 @@ export class Store {
   grammar: Grammar | null | undefined;
   @observable
   configMapping: Map<string, unknown | null | undefined> = new Map();
-  globalMode: boolean = Boolean(atom.config.get("Hydrogen.globalMode"));
+  globalMode: boolean = Boolean(atom.config.get("Hydron.globalMode"));
 
   @computed
   get kernel(): Kernel | null | undefined {
@@ -320,7 +320,7 @@ export class Store {
 const store = new Store();
 export default store; // For debugging
 
-window.hydrogen_store = store;
+window.hydron_store = store;
 
 export interface StoreLike {
   kernel?: Kernel | null | undefined;

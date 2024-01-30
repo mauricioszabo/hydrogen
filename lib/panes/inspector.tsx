@@ -8,7 +8,7 @@ export default class InspectorPane {
   disposer = new CompositeDisposable();
 
   constructor(store: store) {
-    this.element.classList.add("hydrogen", "inspector");
+    this.element.classList.add("hydron", "inspector");
     reactFactory(
       <Inspector store={store} />,
       this.element,
@@ -17,7 +17,7 @@ export default class InspectorPane {
     );
   }
 
-  getTitle = () => "Hydrogen Inspector";
+  getTitle = () => "Hydron Inspector";
   getURI = () => INSPECTOR_URI;
   getDefaultLocation = () => "bottom";
   getAllowedLocations = () => ["bottom", "left", "right"];

@@ -8,7 +8,7 @@ export default class OutputPane {
   disposer = new CompositeDisposable();
 
   constructor(store: store) {
-    this.element.classList.add("hydrogen");
+    this.element.classList.add("hydron");
     this.disposer.add(
       new Disposable(() => {
         if (store.kernel) {
@@ -24,7 +24,7 @@ export default class OutputPane {
     );
   }
 
-  getTitle = () => "Hydrogen Output Area";
+  getTitle = () => "Hydron Output Area";
   getURI = () => OUTPUT_AREA_URI;
   getDefaultLocation = () => "right";
   getAllowedLocations = () => ["left", "right", "bottom"];

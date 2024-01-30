@@ -13,13 +13,13 @@ import os from "os";
 import path from "path";
 import Config from "./config";
 import store from "./store";
-import type { Message } from "./hydrogen";
+import type { Message } from "./hydron";
 import type { KernelspecMetadata } from "@nteract/types";
 
-export const INSPECTOR_URI = "atom://hydrogen/inspector";
-export const WATCHES_URI = "atom://hydrogen/watch-sidebar";
-export const OUTPUT_AREA_URI = "atom://hydrogen/output-area";
-export const KERNEL_MONITOR_URI = "atom://hydrogen/kernel-monitor";
+export const INSPECTOR_URI = "atom://hydron/inspector";
+export const WATCHES_URI = "atom://hydron/watch-sidebar";
+export const OUTPUT_AREA_URI = "atom://hydron/output-area";
+export const KERNEL_MONITOR_URI = "atom://hydron/kernel-monitor";
 export const NO_EXECTIME_STRING = "Not available";
 export function reactFactory(
   reactElement: React.ReactElement<React.ComponentProps<any>, any>,
@@ -184,12 +184,12 @@ export function getEditorDirectory(editor: TextEditor | null | undefined) {
   return editorPath ? path.dirname(editorPath) : os.homedir();
 }
 export function log(...message: Array<any>) {
-  if (atom.config.get("Hydrogen.debug")) {
-    console.log("Hydrogen:", ...message);
+  if (atom.config.get("Hydron.debug")) {
+    console.log("Hydron:", ...message);
   }
 }
 export function hotReloadPackage() {
-  const packName = "Hydrogen";
+  const packName = "Hydron";
   const packPath = atom.packages.resolvePackagePath(packName);
   if (!packPath) {
     return;

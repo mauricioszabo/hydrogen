@@ -9,7 +9,7 @@ import OutputStore from "../../../dist/store/output";
 describe("History", () => {
   let fakeOutput, outputStore, component;
   beforeEach(() => {
-    atom.config.set(`Hydrogen.wrapOutput`, false);
+    atom.config.set(`Hydron.wrapOutput`, false);
     fakeOutput = {
       output_type: "display_data",
       data: {

@@ -2,7 +2,7 @@ import { TextEditor, Grammar } from "atom";
 import * as path from "path";
 import { promises } from "fs";
 const { readFile } = promises;
-import type { HydrogenCellType } from "./hydrogen";
+import type { HydronCellType } from "./hydron";
 
 import { remote } from "electron";
 const { dialog } = remote;
@@ -15,7 +15,7 @@ import { importResult, convertMarkdownToOutput } from "./result";
 const linesep = process.platform === "win32" ? "\r\n" : "\n";
 
 /**
- * Determines if the provided uri is a valid file for Hydrogen to import. Then
+ * Determines if the provided uri is a valid file for Hydron to import. Then
  * it loads the notebook.
  *
  * @param {String} uri - Uri of the file to open.
@@ -23,18 +23,18 @@ const linesep = process.platform === "win32" ? "\r\n" : "\n";
 export function ipynbOpener(uri: string) {
   if (
     path.extname(uri).toLowerCase() === ".ipynb" &&
-    atom.config.get("Hydrogen.importNotebookURI") === true
+    atom.config.get("Hydron.importNotebookURI") === true
   ) {
     return _loadNotebook(
       uri,
-      atom.config.get("Hydrogen.importNotebookResults")
+      atom.config.get("Hydron.importNotebookResults")
     );
   }
 }
 
 /**
- * Determines if the provided event is trying to open a valid file for Hydrogen
- * to import. Otherwise it will ask the user to chose a valid file for Hydrogen
+ * Determines if the provided event is trying to open a valid file for Hydron
+ * to import. Otherwise it will ask the user to chose a valid file for Hydron
  * to import. Then it loads the notebook.
  *
  * @param {Event} event - Atom Event from clicking in a treeview.
@@ -46,7 +46,7 @@ export function importNotebook(event?: CustomEvent) {
   if (filenameFromTreeView && path.extname(filenameFromTreeView) === ".ipynb") {
     return _loadNotebook(
       filenameFromTreeView,
-      atom.config.get("Hydrogen.importNotebookResults")
+      atom.config.get("Hydron.importNotebookResults")
     );
   }
 
@@ -75,7 +75,7 @@ export function importNotebook(event?: CustomEvent) {
 
       _loadNotebook(
         filename,
-        atom.config.get("Hydrogen.importNotebookResults")
+        atom.config.get("Hydron.importNotebookResults")
       );
     }
   );
@@ -83,7 +83,7 @@ export function importNotebook(event?: CustomEvent) {
 
 /**
  * Reads the given notebook file and coverts it to a text editor format with
- * Hydrogen cell breakpoints. Optionally after opening the notebook, it will
+ * Hydron cell breakpoints. Optionally after opening the notebook, it will
  * also load the previous results and display them.
  *
  * @param {String} filename - Path of the file.
@@ -143,7 +143,7 @@ export async function _loadNotebook(
   nb.cellOrder.forEach((value) => {
     const cell = nb.cellMap.get(value).toJS();
     nbCells.push(cell);
-    const hyCell = toHydrogenCodeBlock(cell, `${commentStartString} `);
+    const hyCell = toHydronCodeBlock(cell, `${commentStartString} `);
     resultRows.push(previousBreakpoint + hyCell.code.trim().split("\n").length);
     previousBreakpoint += hyCell.row;
     sources.push(hyCell.code);
@@ -296,17 +296,17 @@ function getGrammarForKernelspecName(name: string): Grammar | null | undefined {
 }
 
 /**
- * Converts notebook cells to Hydrogen code blocks.
+ * Converts notebook cells to Hydron code blocks.
  *
  * @param {Cell} cell - Notebook cell to convert
  * @param {String} commentStartString - The comment syntax of the code language.
- * @returns {Object} - A Hydrogen Code Block.
+ * @returns {Object} - A Hydron Code Block.
  */
-function toHydrogenCodeBlock(
+function toHydronCodeBlock(
   cell: Cell,
   commentStartString: string
 ): {
-  cellType: HydrogenCellType;
+  cellType: HydronCellType;
   code: string;
   row: number;
 } {
@@ -332,11 +332,11 @@ function toHydrogenCodeBlock(
 }
 
 /**
- * Creates a Hydrogen cell header
+ * Creates a Hydron cell header
  *
  * @param {String} commentStartString - The comment syntax of the code language.
  * @param {String} keyword - The keyword relating to the cell type.
- * @returns {String} - A Hydrogen Cell Header.
+ * @returns {String} - A Hydron Cell Header.
  */
 function getCellHeader(
   commentStartString: string,

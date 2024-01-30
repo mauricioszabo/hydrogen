@@ -3,18 +3,18 @@ import store from "../store";
 import type Kernel from "../kernel";
 import { getCurrentCell } from "../code-manager";
 /**
- * @version 1.0.0 The Plugin API allows you to make Hydrogen awesome. You will
- *   be able to interact with this class in your Hydrogen Plugin using Atom's
+ * @version 1.0.0 The Plugin API allows you to make Hydron awesome. You will
+ *   be able to interact with this class in your Hydron Plugin using Atom's
  *   [Service API](http://blog.atom.io/2015/03/25/new-services-API.html).
  *
  *   Take a look at our [Example
- *   Plugin](https://github.com/lgeiger/hydrogen-example-plugin) and the [Atom
+ *   Plugin](https://github.com/lgeiger/hydron-example-plugin) and the [Atom
  *   Flight Manual](http://flight-manual.atom.io/hacking-atom/) for learning how
- *   to interact with Hydrogen in your own plugin.
- * @class HydrogenProvider
+ *   to interact with Hydron in your own plugin.
+ * @class HydronProvider
  */
 
-export default class HydrogenProvider {
+export default class HydronProvider {
   private _emitter: Emitter<{}, { "did-change-kernel": Kernel }> | undefined;
   constructor(emitter: Emitter<{}, { "did-change-kernel": Kernel }>) {
     this._emitter = emitter;
@@ -38,8 +38,8 @@ export default class HydrogenProvider {
   }
 
   /*
-   * Get the `HydrogenKernel` of the currently active text editor.
-   * @return {Class} `HydrogenKernel`
+   * Get the `HydronKernel` of the currently active text editor.
+   * @return {Class} `HydronKernel`
    */
   getActiveKernel() {
     if (!store.kernel) {
@@ -51,7 +51,7 @@ export default class HydrogenProvider {
   }
 
   /*
-   * Get the `Range` that will run if `hydrogen:run-cell` is called.
+   * Get the `Range` that will run if `hydron:run-cell` is called.
    * `null` is returned if no active text editor.
    * @return {Class} `Range`
    */

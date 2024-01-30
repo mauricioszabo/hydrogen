@@ -5,19 +5,19 @@ import WatchesPane from "./panes/watches";
 import { OUTPUT_AREA_URI, openOrShowDock } from "./utils";
 import type MarkerStore from "./store/markers";
 import type Kernel from "./kernel";
-import type { HydrogenCellType } from "./hydrogen";
+import type { HydronCellType } from "./hydron";
 
 /**
  * Creates and renders a ResultView.
  *
- * @param {Object} store - Global Hydrogen Store
+ * @param {Object} store - Global Hydron Store
  * @param {TextEditor} store.editor - TextEditor associated with the result.
  * @param {Kernel} store.kernel - Kernel to run code and associate with the result.
  * @param {MarkerStore} store.markers - MarkerStore that belongs to `store.editor`.
- * @param {Object} codeBlock - A Hydrogen Cell.
+ * @param {Object} codeBlock - A Hydron Cell.
  * @param {String} codeBlock.code - Source string of the cell.
  * @param {Number} codeBlock.row - Row to display the result on.
- * @param {HydrogenCellType} codeBlock.cellType - Cell type of the cell.
+ * @param {HydronCellType} codeBlock.cellType - Cell type of the cell.
  */
 export function createResult(
   {
@@ -36,7 +36,7 @@ export function createResult(
   }: {
     code: string;
     row: number;
-    cellType: HydrogenCellType;
+    cellType: HydronCellType;
   }
 ) {
   if (!editor || !kernel || !markers) {
@@ -49,7 +49,7 @@ export function createResult(
   }
 
   const globalOutputStore =
-    atom.config.get("Hydrogen.outputAreaDefault") ||
+    atom.config.get("Hydron.outputAreaDefault") ||
     atom.workspace.getPaneItems().find((item) => item instanceof OutputPane)
       ? kernel.outputStore
       : null;
@@ -98,7 +98,7 @@ export function createResult(
 /**
  * Creates inline results from Kernel Responses without a tie to a kernel.
  *
- * @param {Store} store - Hydrogen store
+ * @param {Store} store - Hydron store
  * @param {TextEditor} store.editor - The editor to display the results in.
  * @param {MarkerStore} store.markers - Should almost always be the editor's `MarkerStore`
  * @param {Object} bundle - The bundle to display.
@@ -144,7 +144,7 @@ export function importResult(
  * to text on the row of the last ResultView to remove. _This must be one
  * selection and the last selection made_
  *
- * @param {Object} store - Global Hydrogen Store
+ * @param {Object} store - Global Hydron Store
  * @param {TextEditor} store.editor - TextEditor associated with the ResultView.
  * @param {MarkerStore} store.markers - MarkerStore that belongs to
  *   `store.editor` and the ResultView.
@@ -169,7 +169,7 @@ export function clearResult({
 /**
  * Clears all ResultViews of a MarkerStore. It also clears the currect kernel results.
  *
- * @param {Object} store - Global Hydrogen Store
+ * @param {Object} store - Global Hydron Store
  * @param {Kernel} store.kernel - Kernel to clear outputs.
  * @param {MarkerStore} store.markers - MarkerStore to clear.
  */
@@ -191,7 +191,7 @@ export function clearResults({
 
 /**
  * Converts a string of raw markdown to a display_data Kernel Response. This
- * allows for hydrogen to display markdown text as if is was any normal result
+ * allows for hydron to display markdown text as if is was any normal result
  * that came back from the kernel.
  *
  * @param {String} markdownString - A string of raw markdown code.

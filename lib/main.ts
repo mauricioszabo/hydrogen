@@ -21,7 +21,7 @@ import Kernel from "./kernel";
 import KernelPicker from "./kernel-picker";
 import WSKernelPicker from "./ws-kernel-picker";
 import ExistingKernelPicker from "./existing-kernel-picker";
-import HydrogenProvider from "./plugin-api/hydrogen-provider";
+import HydronProvider from "./plugin-api/hydron-provider";
 import store, { Store, StoreLike } from "./store";
 import { KernelManager } from "./kernel-manager";
 import services from "./services";
@@ -48,7 +48,7 @@ let emitter: Emitter<{}, { "did-change-kernel": Kernel }> | undefined;
 let kernelPicker: KernelPicker | undefined;
 let existingKernelPicker: ExistingKernelPicker | undefined;
 let wsKernelPicker: WSKernelPicker | undefined;
-let hydrogenProvider: HydrogenProvider | undefined;
+let hydronProvider: HydronProvider | undefined;
 const kernelManager = new KernelManager();
 
 export function activate() {
@@ -56,7 +56,7 @@ export function activate() {
   let skipLanguageMappingsChange = false;
   store.subscriptions.add(
     atom.config.onDidChange(
-      "Hydrogen.languageMappings",
+      "Hydron.languageMappings",
       ({ newValue, oldValue }) => {
         if (skipLanguageMappingsChange) {
           skipLanguageMappingsChange = false;
@@ -65,8 +65,8 @@ export function activate() {
 
         if (store.runningKernels.length != 0) {
           skipLanguageMappingsChange = true;
-          atom.config.set("Hydrogen.languageMappings", oldValue);
-          atom.notifications.addError("Hydrogen", {
+          atom.config.set("Hydron.languageMappings", oldValue);
+          atom.notifications.addError("Hydron", {
             description:
               "`languageMappings` cannot be updated while kernels are running",
             dismissable: false,
@@ -76,26 +76,26 @@ export function activate() {
     )
   );
   store.subscriptions.add(
-    atom.config.observe("Hydrogen.statusBarDisable", (newValue) => {
-      store.setConfigValue("Hydrogen.statusBarDisable", Boolean(newValue));
+    atom.config.observe("Hydron.statusBarDisable", (newValue) => {
+      store.setConfigValue("Hydron.statusBarDisable", Boolean(newValue));
     }),
-    atom.config.observe("Hydrogen.statusBarKernelInfo", (newValue) => {
-      store.setConfigValue("Hydrogen.statusBarKernelInfo", Boolean(newValue));
+    atom.config.observe("Hydron.statusBarKernelInfo", (newValue) => {
+      store.setConfigValue("Hydron.statusBarKernelInfo", Boolean(newValue));
     })
   );
   store.subscriptions.add(
     atom.commands.add<"atom-text-editor:not([mini])">(
       "atom-text-editor:not([mini])",
       {
-        "hydrogen:run": () => run(),
-        "hydrogen:run-all": () => runAll(),
-        "hydrogen:run-all-above": () => runAllAbove(),
-        "hydrogen:run-and-move-down": () => run(true),
-        "hydrogen:run-cell": () => runCell(),
-        "hydrogen:run-cell-and-move-down": () => runCell(true),
-        "hydrogen:toggle-watches": () => atom.workspace.toggle(WATCHES_URI),
-        "hydrogen:toggle-output-area": () => commands.toggleOutputMode(),
-        "hydrogen:toggle-kernel-monitor": async () => {
+        "hydron:run": () => run(),
+        "hydron:run-all": () => runAll(),
+        "hydron:run-all-above": () => runAllAbove(),
+        "hydron:run-and-move-down": () => run(true),
+        "hydron:run-cell": () => runCell(),
+        "hydron:run-cell-and-move-down": () => runCell(true),
+        "hydron:toggle-watches": () => atom.workspace.toggle(WATCHES_URI),
+        "hydron:toggle-output-area": () => commands.toggleOutputMode(),
+        "hydron:toggle-kernel-monitor": async () => {
           const lastItem = atom.workspace.getActivePaneItem();
           const lastPane = atom.workspace.paneForItem(lastItem);
           await atom.workspace.toggle(KERNEL_MONITOR_URI);
@@ -103,64 +103,64 @@ export function activate() {
             lastPane.activate();
           }
         },
-        "hydrogen:start-local-kernel": () => startZMQKernel(),
-        "hydrogen:connect-to-remote-kernel": () => connectToWSKernel(),
-        "hydrogen:connect-to-existing-kernel": () => connectToExistingKernel(),
-        "hydrogen:add-watch": () => {
+        "hydron:start-local-kernel": () => startZMQKernel(),
+        "hydron:connect-to-remote-kernel": () => connectToWSKernel(),
+        "hydron:connect-to-existing-kernel": () => connectToExistingKernel(),
+        "hydron:add-watch": () => {
           if (store.kernel) {
             store.kernel.watchesStore.addWatchFromEditor(store.editor);
             openOrShowDock(WATCHES_URI);
           }
         },
-        "hydrogen:remove-watch": () => {
+        "hydron:remove-watch": () => {
           if (store.kernel) {
             store.kernel.watchesStore.removeWatch();
             openOrShowDock(WATCHES_URI);
           }
         },
-        "hydrogen:update-kernels": async () => {
+        "hydron:update-kernels": async () => {
           await kernelManager.updateKernelSpecs();
         },
-        "hydrogen:toggle-inspector": () => commands.toggleInspector(store),
-        "hydrogen:interrupt-kernel": () =>
+        "hydron:toggle-inspector": () => commands.toggleInspector(store),
+        "hydron:interrupt-kernel": () =>
           handleKernelCommand(
             {
               command: "interrupt-kernel",
             },
             store
           ),
-        "hydrogen:restart-kernel": () =>
+        "hydron:restart-kernel": () =>
           handleKernelCommand(
             {
               command: "restart-kernel",
             },
             store
           ),
-        "hydrogen:shutdown-kernel": () =>
+        "hydron:shutdown-kernel": () =>
           handleKernelCommand(
             {
               command: "shutdown-kernel",
             },
             store
           ),
-        "hydrogen:clear-result": () => result.clearResult(store),
-        "hydrogen:export-notebook": () => exportNotebook(),
-        "hydrogen:fold-current-cell": () => foldCurrentCell(),
-        "hydrogen:fold-all-but-current-cell": () => foldAllButCurrentCell(),
-        "hydrogen:clear-results": () => result.clearResults(store),
+        "hydron:clear-result": () => result.clearResult(store),
+        "hydron:export-notebook": () => exportNotebook(),
+        "hydron:fold-current-cell": () => foldCurrentCell(),
+        "hydron:fold-all-but-current-cell": () => foldAllButCurrentCell(),
+        "hydron:clear-results": () => result.clearResults(store),
       }
     )
   );
   store.subscriptions.add(
     atom.commands.add("atom-workspace", {
-      "hydrogen:import-notebook": importNotebook,
+      "hydron:import-notebook": importNotebook,
     })
   );
 
   if (atom.inDevMode()) {
     store.subscriptions.add(
       atom.commands.add("atom-workspace", {
-        "hydrogen:hot-reload-package": () => hotReloadPackage(),
+        "hydron:hot-reload-package": () => hotReloadPackage(),
       })
     );
   }
@@ -200,7 +200,7 @@ export function activate() {
       store.subscriptions.add(editorSubscriptions);
     })
   );
-  hydrogenProvider = null;
+  hydronProvider = null;
   store.subscriptions.add(
     atom.workspace.addOpener((uri) => {
       switch (uri) {
@@ -247,12 +247,12 @@ export function deactivate() {
 }
 
 /*-------------- Service Providers --------------*/
-export function provideHydrogen() {
-  if (!hydrogenProvider) {
-    hydrogenProvider = new HydrogenProvider(emitter);
+export function provideHydron() {
+  if (!hydronProvider) {
+    hydronProvider = new HydronProvider(emitter);
   }
 
-  return hydrogenProvider;
+  return hydronProvider;
 }
 
 export function provideAutocompleteResults() {
@@ -334,7 +334,7 @@ function run(moveDown: boolean = false) {
   if (!editor) {
     return;
   }
-  // https://github.com/nteract/hydrogen/issues/1452
+  // https://github.com/nteract/hydron/issues/1452
   atom.commands.dispatch(editor.element, "autocomplete-plus:cancel");
   const codeBlock = codeManager.findCodeBlock(editor);
 
@@ -489,7 +489,7 @@ function runCell(moveDown: boolean = false) {
   if (!editor) {
     return;
   }
-  // https://github.com/nteract/hydrogen/issues/1452
+  // https://github.com/nteract/hydron/issues/1452
   atom.commands.dispatch(editor.element, "autocomplete-plus:cancel");
   const { start, end } = codeManager.getCurrentCell(editor);
   const codeNullable = codeManager.getTextInRange(editor, start, end);

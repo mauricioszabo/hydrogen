@@ -11,10 +11,10 @@ type Props = {
 class StatusBar extends React.Component<Props> {
   render() {
     const { kernel, markers, configMapping } = this.props.store;
-    if (!kernel || configMapping.get("Hydrogen.statusBarDisable")) {
+    if (!kernel || configMapping.get("Hydron.statusBarDisable")) {
       return null;
     }
-    const view = configMapping.get("Hydrogen.statusBarKernelInfo") ? ( // branch on if exec time is not available or no execution has happened
+    const view = configMapping.get("Hydron.statusBarKernelInfo") ? ( // branch on if exec time is not available or no execution has happened
       kernel.executionCount === 0 ||
       kernel.lastExecutionTime === NO_EXECTIME_STRING ? (
         <a

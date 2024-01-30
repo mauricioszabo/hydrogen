@@ -9,7 +9,7 @@ import {
   rowRangeForCodeFoldAtBufferRow,
   js_idx_to_char_idx,
 } from "./utils";
-import type { HydrogenCellType } from "./hydrogen";
+import type { HydronCellType } from "./hydron";
 
 export function normalizeString(code: string | null | undefined) {
   if (code) {
@@ -41,12 +41,12 @@ export function getRows(editor: TextEditor, startRow: number, endRow: number) {
 export function getMetadataForRow(
   editor: TextEditor,
   anyPointInCell: Point
-): HydrogenCellType {
+): HydronCellType {
   if (isMultilanguageGrammar(editor.getGrammar())) {
     return "codecell";
   }
 
-  let cellType: HydrogenCellType = "codecell";
+  let cellType: HydronCellType = "codecell";
   const buffer = editor.getBuffer();
   anyPointInCell = new Point(
     anyPointInCell.row,
@@ -360,7 +360,7 @@ export function moveDown(editor: TextEditor, row: number) {
     row,
     column: 0,
   });
-  atom.config.get("Hydrogen.centerOnMoveDown") &&
+  atom.config.get("Hydron.centerOnMoveDown") &&
     centerScreenOnCursorPosition(editor);
 }
 export function findPrecedingBlock(

@@ -40,7 +40,7 @@ export default class ZMQKernel extends KernelTransport {
   ) {
     super(kernelSpec, grammar);
     this.options = options || {};
-    // Otherwise spawnteract deletes the file and hydrogen's restart kernel fails
+    // Otherwise spawnteract deletes the file and hydron's restart kernel fails
     options.cleanupConnectionFile = false;
     launchSpec(kernelSpec, options).then(
       ({ config, connectionFile, spawn }) => {
@@ -84,7 +84,7 @@ export default class ZMQKernel extends KernelTransport {
     childProcess.stdout.on("data", (data: string | Buffer) => {
       data = data.toString();
 
-      if (atom.config.get("Hydrogen.kernelNotifications")) {
+      if (atom.config.get("Hydron.kernelNotifications")) {
         atom.notifications.addInfo(this.kernelSpec.display_name, {
           description: data,
           dismissable: true,

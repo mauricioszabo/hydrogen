@@ -21,7 +21,7 @@ export default class InputView {
   ) {
     this.onConfirmed = onConfirmed;
     this.element = document.createElement("div");
-    this.element.classList.add("hydrogen", "input-view");
+    this.element.classList.add("hydron", "input-view");
     if (password) {
       this.element.classList.add("password");
     }

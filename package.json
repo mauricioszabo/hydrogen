@@ -1,5 +1,5 @@
 {
-  "name": "Hydrogen",
+  "name": "Hydron",
   "main": "./dist/main",
   "version": "2.16.4",
   "description": "Run code interactively, inspect data, and plot. All the power of Jupyter kernels, inside your favorite text editor.",
@@ -20,18 +20,18 @@
   ],
   "activationCommands": {
     "atom-text-editor": [
-      "hydrogen:start-local-kernel",
-      "hydrogen:connect-to-remote-kernel",
-      "hydrogen:run",
-      "hydrogen:run-and-move-down",
-      "hydrogen:run-all",
-      "hydrogen:run-all-above",
-      "hydrogen:run-cell",
-      "hydrogen:run-cell-and-move-down",
-      "hydrogen:export-notebook"
+      "hydron:start-local-kernel",
+      "hydron:connect-to-remote-kernel",
+      "hydron:run",
+      "hydron:run-and-move-down",
+      "hydron:run-all",
+      "hydron:run-all-above",
+      "hydron:run-cell",
+      "hydron:run-cell-and-move-down",
+      "hydron:export-notebook"
     ],
     "atom-workspace": [
-      "hydrogen:import-notebook"
+      "hydron:import-notebook"
     ]
   },
   "scripts": {
@@ -47,13 +47,13 @@
     "tsc": "tsc -p lib/tsconfig.json || echo done",
     "build": "npm run clean && npm run tsc && npm run clean.prod",
     "build:services-docs": "markdox lib/services/index.js -o lib/services/README.md",
-    "build:plugin-docs": "markdox lib/plugin-api/hydrogen-provider.js lib/plugin-api/hydrogen-kernel.js -o docs/PluginAPI.md",
+    "build:plugin-docs": "markdox lib/plugin-api/hydron-provider.js lib/plugin-api/hydron-kernel.js -o docs/PluginAPI.md",
     "build:docs": "npm run build:plugin-docs && npm run build:services-docs",
     "build-commit": "build-commit -o dist",
     "prepare": "npm run build"
   },
   "atomTestRunner": "atom-jasmine3-test-runner",
-  "repository": "https://github.com/nteract/hydrogen",
+  "repository": "https://github.com/nteract/hydron",
   "license": "MIT",
   "engines": {
     "atom": ">=1.28.0 <2.0.0"
@@ -105,10 +105,10 @@
         "4.0.0": "provideAutocompleteResults"
       }
     },
-    "hydrogen.provider": {
+    "hydron.provider": {
       "versions": {
-        "1.1.0": "provideHydrogen",
-        "1.2.0": "provideHydrogen"
+        "1.1.0": "provideHydron",
+        "1.2.0": "provideHydron"
       }
     }
   },

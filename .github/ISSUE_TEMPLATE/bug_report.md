@@ -8,16 +8,16 @@ assignees: ""
 
 <!--
 
-Have you read Hydrogen's Code of Conduct ? By filing an issue, you are expected to comply with it, including treating everyone with respect: https://github.com/nteract/hydrogen/blob/master/CODE_OF_CONDUCT.md
+Have you read Hydron's Code of Conduct ? By filing an issue, you are expected to comply with it, including treating everyone with respect: https://github.com/nteract/hydron/blob/master/CODE_OF_CONDUCT.md
 
-Do you want to ask a question ? Are you looking for support? The #hydrogen channel in nteract slack is the best place for getting support. Feel free to ping us on: https://slack.nteract.io
+Do you want to ask a question ? Are you looking for support? The #hydron channel in nteract slack is the best place for getting support. Feel free to ping us on: https://slack.nteract.io
 
 -->
 
 ### Prerequisites
 
-- [ ] Have you checked the solutions in our [troubleshooting guide](https://nteract.gitbooks.io/hydrogen/docs/Troubleshooting.html) for common problems ?
-- [ ] Have you checked that your issue [isn't already filed](https://github.com/nteract/hydrogen/issues) ?
+- [ ] Have you checked the solutions in our [troubleshooting guide](https://nteract.gitbooks.io/hydron/docs/Troubleshooting.html) for common problems ?
+- [ ] Have you checked that your issue [isn't already filed](https://github.com/nteract/hydron/issues) ?
 
 ### Description
 
@@ -52,23 +52,23 @@ OS version:
 
 ```
 
-Hydrogen version:
+Hydron version:
 
-<!-- You can check this information in the settings view or via running `apm show hydrogen` -->
+<!-- You can check this information in the settings view or via running `apm show hydron` -->
 
-[Your Hydrogen's version]
+[Your Hydron's version]
 
 ### Plugins
 
-Have you installed and activated any of the Hydrogen plugins below ?
+Have you installed and activated any of the Hydron plugins below ?
 
-- [ ] hydrogen-python
-- [ ] Hydrogen Launcher
+- [ ] hydron-python
+- [ ] Hydron Launcher
 - [ ] Data Explorer
 
 ### Logs
 
-[Please post any error logs and the output of the developer tools as described in our [Debugging Guide](https://nteract.gitbooks.io/hydrogen/docs/Troubleshooting.html).]
+[Please post any error logs and the output of the developer tools as described in our [Debugging Guide](https://nteract.gitbooks.io/hydron/docs/Troubleshooting.html).]
 
 ### Expected behavior
 

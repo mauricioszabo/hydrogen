@@ -152,10 +152,10 @@ class ResultViewComponent extends React.Component<Props> {
                 userSelect: "text",
               }
         }
-        hydrogen-wrapoutput={atom.config.get(`Hydrogen.wrapOutput`).toString()}
+        hydron-wrapoutput={atom.config.get(`Hydron.wrapOutput`).toString()}
       >
         <div
-          className="hydrogen_cell_display"
+          className="hydron_cell_display"
           ref={(ref) => {
             if (!ref) {
               return;
@@ -222,7 +222,7 @@ class ResultViewComponent extends React.Component<Props> {
       !this.el ||
       this.expanded ||
       this.props.store.isPlain ||
-      atom.config.get(`Hydrogen.autoScroll`) === false
+      atom.config.get(`Hydron.autoScroll`) === false
     ) {
       return;
     }

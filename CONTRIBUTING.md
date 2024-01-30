@@ -1,4 +1,4 @@
-# Contributing to Hydrogen
+# Contributing to Hydron
 
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
@@ -11,13 +11,13 @@ Please join our [Slack channel](https://slackin-nteract.now.sh/) if you have any
 
 ### Prerequisites
 
-For hacking on Hydrogen you'll need to have [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node) installed.
+For hacking on Hydron you'll need to have [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node) installed.
 
 ### Quick and dirty setup
 
-`apm develop hydrogen`
+`apm develop hydron`
 
-This will clone the `hydrogen` repository to `~/github` unless you set the
+This will clone the `hydron` repository to `~/github` unless you set the
 `ATOM_REPOS_HOME` environment variable.
 
 ### I already cloned it!

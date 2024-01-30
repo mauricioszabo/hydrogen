@@ -9,7 +9,7 @@ import { isUnsavedFilePath } from "../utils";
 import type { KernelspecMetadata } from "@nteract/types";
 
 const showKernelSpec = (kernelSpec: {}) => {
-  atom.notifications.addInfo("Hydrogen: Kernel Spec", {
+  atom.notifications.addInfo("Hydron: Kernel Spec", {
     detail: JSON.stringify(kernelSpec, null, 2),
     dismissable: true,
   });
@@ -40,7 +40,7 @@ const openUnsavedEditor = (filePath: string) => {
 
     return String(editor.id) === match[0];
   });
-  // This path won't happen after https://github.com/nteract/hydrogen/pull/1662 since every deleted
+  // This path won't happen after https://github.com/nteract/hydron/pull/1662 since every deleted
   // editors would be deleted from `store.kernelMapping`. Just kept here for safety.
   if (!editor) {
     return;
@@ -56,7 +56,7 @@ const openEditor = (filePath: string) => {
       searchAllPanes: true,
     })
     .catch((err) => {
-      atom.notifications.addError("Hydrogen", {
+      atom.notifications.addError("Hydron", {
         description: err,
       });
     });

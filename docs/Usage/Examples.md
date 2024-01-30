@@ -1,6 +1,6 @@
 # Examples
 
-This is a collection of rich examples supported by Hydrogen.
+This is a collection of rich examples supported by Hydron.
 Please share your favorite snippets with us and add them to this page.
 
 ## Interactive plots using [Plotly](https://plot.ly/api/)

@@ -8,7 +8,7 @@ export default class KernelMonitorPane {
   disposer = new CompositeDisposable();
 
   constructor(store: store) {
-    this.element.classList.add("hydrogen");
+    this.element.classList.add("hydron");
     reactFactory(
       <KernelMonitor store={store} />,
       this.element,
@@ -17,7 +17,7 @@ export default class KernelMonitorPane {
     );
   }
 
-  getTitle = () => "Hydrogen Kernel Monitor";
+  getTitle = () => "Hydron Kernel Monitor";
   getURI = () => KERNEL_MONITOR_URI;
   getDefaultLocation = () => "bottom";
   getAllowedLocations = () => ["bottom", "left", "right"];

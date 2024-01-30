@@ -1,16 +1,16 @@
-<!-- Start lib/plugin-api/hydrogen-provider.js -->
+<!-- Start lib/plugin-api/hydron-provider.js -->
 
-## HydrogenProvider
+## HydronProvider
 
 Version: 1.0.0
 
-The Plugin API allows you to make Hydrogen awesome.
-You will be able to interact with this class in your Hydrogen Plugin using
+The Plugin API allows you to make Hydron awesome.
+You will be able to interact with this class in your Hydron Plugin using
 Atom's [Service API](http://blog.atom.io/2015/03/25/new-services-API.html).
 
-Take a look at our [Example Plugin](https://github.com/lgeiger/hydrogen-example-plugin)
+Take a look at our [Example Plugin](https://github.com/lgeiger/hydron-example-plugin)
 and the [Atom Flight Manual](http://flight-manual.atom.io/hacking-atom/) for
-learning how to interact with Hydrogen in your own plugin.
+learning how to interact with Hydron in your own plugin.
 
 ## onDidChangeKernel(Callback)
 
@@ -22,15 +22,15 @@ Calls your callback when the kernel has changed.
 
 ## getActiveKernel()
 
-Get the `HydrogenKernel` of the currently active text editor.
+Get the `HydronKernel` of the currently active text editor.
 
 ### Return:
 
-- **Class** `HydrogenKernel`
+- **Class** `HydronKernel`
 
 ## getCellRange()
 
-Get the `atom$Range` that will run if `hydrogen:run-cell` is called.
+Get the `atom$Range` that will run if `hydron:run-cell` is called.
 `null` is returned if no active text editor.
 
 ### Return:
@@ -39,13 +39,13 @@ Get the `atom$Range` that will run if `hydrogen:run-cell` is called.
 
 ---
 
-<!-- End lib/plugin-api/hydrogen-provider.js -->
+<!-- End lib/plugin-api/hydron-provider.js -->
 
-<!-- Start lib/plugin-api/hydrogen-kernel.js -->
+<!-- Start lib/plugin-api/hydron-kernel.js -->
 
-## HydrogenKernel
+## HydronKernel
 
-The `HydrogenKernel` class wraps Hydrogen's internal representation of kernels
+The `HydronKernel` class wraps Hydron's internal representation of kernels
 and exposes a small set of methods that should be usable by plugins.
 
 ## language
@@ -66,7 +66,7 @@ If the methods of a `middleware` object are added/modified/deleted after
 
 ### Params:
 
-- **HydrogenKernelMiddleware** _middleware_
+- **HydronKernelMiddleware** _middleware_
 
 ## onDidDestroy(Callback)
 
@@ -84,4 +84,4 @@ Get the [connection file](http://jupyter-notebook.readthedocs.io/en/latest/examp
 
 - **String** Path to connection file.
 
-<!-- End lib/plugin-api/hydrogen-kernel.js -->
+<!-- End lib/plugin-api/hydron-kernel.js -->

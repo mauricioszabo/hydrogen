@@ -8,11 +8,11 @@ export default class WatchesPane {
   disposer = new CompositeDisposable();
 
   constructor(store: store) {
-    this.element.classList.add("hydrogen");
+    this.element.classList.add("hydron");
     reactFactory(<Watches store={store} />, this.element, null, this.disposer);
   }
 
-  getTitle = () => "Hydrogen Watch";
+  getTitle = () => "Hydron Watch";
   getURI = () => WATCHES_URI;
   getDefaultLocation = () => "right";
   getAllowedLocations = () => ["left", "right"];

@@ -16,11 +16,11 @@ export class AutocompleteWatchEditor {
 
   /**
    * This function is called on activation of autocomplete, or if autocomplete
-   * is already active, then it is called when hydrogen activates.
+   * is already active, then it is called when hydron activates.
    *
-   * @param {Store} store - The global Hydrogen store.
+   * @param {Store} store - The global Hydron store.
    * @param {Function} watchEditor - The function provided by `autocomplete.watchEditor`.
-   * @returns {Disposable} - This is for clean up when autocomplete or hydrogen
+   * @returns {Disposable} - This is for clean up when autocomplete or hydron
    *   deactivate.
    */
   consume(store: Store, watchEditor: AtomAutocompleteWatchEditor) {
@@ -45,10 +45,10 @@ export class AutocompleteWatchEditor {
   }
 
   /**
-   * This function is just for cleaning up when either autocomplete or hydrogen
+   * This function is just for cleaning up when either autocomplete or hydron
    * is deactivating.
    *
-   * @param {Store} store - The global Hydrogen store.
+   * @param {Store} store - The global Hydron store.
    */
   disable(store: Store) {
     // Removes the consumed function `watchEditor`

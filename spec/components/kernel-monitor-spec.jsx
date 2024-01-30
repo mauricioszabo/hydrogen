@@ -39,7 +39,7 @@ describe("Kernel monitor", () => {
 
         const filename = unsaved
           ? `Unsaved Editor ${newEditor.id}`
-          : `${debugName}-hydrogen-spec${ext}`;
+          : `${debugName}-hydron-spec${ext}`;
         if (!unsaved) {
           await newEditor.saveAs(filename);
           filesToDelete.push(newEditor.getPath());

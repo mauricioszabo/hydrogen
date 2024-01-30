@@ -28,7 +28,7 @@ export class KernelManager {
           grammar && /python/g.test(grammar.scopeName)
             ? "\n\nTo detect your current Python install you will need to run:<pre>python -m pip install ipykernel\npython -m ipykernel install --user</pre>"
             : "";
-        const description = `Check that the language for this file is set in Atom, that you have a Jupyter kernel installed for it, and that you have configured the language mapping in Hydrogen preferences.${pythonDescription}`;
+        const description = `Check that the language for this file is set in Atom, that you have a Jupyter kernel installed for it, and that you have configured the language mapping in Hydron preferences.${pythonDescription}`;
         atom.notifications.addError(message, {
           description,
           dismissable: pythonDescription !== "",
@@ -57,7 +57,7 @@ export class KernelManager {
     let projectPath;
     log("KernelManager: startKernel:", displayName);
 
-    switch (atom.config.get("Hydrogen.startDir")) {
+    switch (atom.config.get("Hydron.startDir")) {
       case "firstProjectDir":
         projectPath = atom.project.getPaths()[0];
         break;
@@ -151,7 +151,7 @@ export class KernelManager {
             text: "Install Instructions",
             onDidClick: () =>
               shell.openExternal(
-                "https://nteract.gitbooks.io/hydrogen/docs/Installation.html"
+                "https://nteract.gitbooks.io/hydron/docs/Installation.html"
               ),
           },
           {
@@ -169,7 +169,7 @@ export class KernelManager {
       };
       atom.notifications.addError(message, options);
     } else {
-      const message = "Hydrogen Kernels updated:";
+      const message = "Hydron Kernels updated:";
       const displayNames = map(kernelSpecs, "display_name"); // kernelSpecs.map((kernelSpec) => kernelSpec.display_name)
       const options = {
         detail: displayNames.join("\n"),

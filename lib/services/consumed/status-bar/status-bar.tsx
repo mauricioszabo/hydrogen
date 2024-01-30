@@ -15,7 +15,7 @@ export class StatusBarConsumer {
     handleKernelCommand: (...args: Array<any>) => any
   ) {
     const statusBarElement = document.createElement("div");
-    statusBarElement.classList.add("inline-block", "hydrogen");
+    statusBarElement.classList.add("inline-block", "hydron");
     const statusBarTile = statusBar.addLeftTile({
       item: statusBarElement,
       priority: 100,

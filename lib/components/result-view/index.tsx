@@ -30,7 +30,7 @@ export default class ResultView {
     showResult: boolean = true
   ) {
     const element = document.createElement("div");
-    element.classList.add("hydrogen", "marker");
+    element.classList.add("hydron", "marker");
     this.disposer = new CompositeDisposable();
     markerStore.clearOnRow(row);
     this.marker = editor.markBufferPosition([row, Infinity], {

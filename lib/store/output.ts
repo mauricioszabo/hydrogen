@@ -7,7 +7,7 @@ import { isTextOutputOnly } from "../components/result-view/display";
 const outputTypes = ["execute_result", "display_data", "stream", "error"];
 
 /**
- * https://github.com/nteract/hydrogen/issues/466#issuecomment-274822937 An
+ * https://github.com/nteract/hydron/issues/466#issuecomment-274822937 An
  * output can be a stream of data that does not arrive at a single time. This
  * function handles the different types of outputs and accumulates the data into
  * a reduced output.

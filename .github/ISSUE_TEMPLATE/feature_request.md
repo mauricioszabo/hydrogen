@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea for Hydrogen
+about: Suggest an idea for Hydron
 title: ""
 labels: "enhancement :star2:"
 assignees: ""

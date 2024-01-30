@@ -26,7 +26,7 @@ export default class Watch extends React.Component<{
   render() {
     return (
       <div
-        className="hydrogen watch-view"
+        className="hydron watch-view"
         ref={(c) => {
           this.container = c;
         }}

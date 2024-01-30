@@ -71,9 +71,9 @@ const History = observer(({ store }: { store: OutputStore }) => {
         className="multiline-container native-key-bindings"
         tabIndex={-1}
         style={{
-          fontSize: atom.config.get(`Hydrogen.outputAreaFontSize`) || "inherit",
+          fontSize: atom.config.get(`Hydron.outputAreaFontSize`) || "inherit",
         }}
-        hydrogen-wrapoutput={atom.config.get(`Hydrogen.wrapOutput`).toString()}
+        hydron-wrapoutput={atom.config.get(`Hydron.wrapOutput`).toString()}
       >
         <Display output={output} />
       </div>

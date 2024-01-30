@@ -5,7 +5,7 @@ import { WATCHES_URI, EmptyMessage } from "../../utils";
 type store = typeof import("../../store").default;
 const Watches = observer(({ store: { kernel } }: { store: store }) => {
   if (!kernel) {
-    if (atom.config.get("Hydrogen.outputAreaDock")) {
+    if (atom.config.get("Hydron.outputAreaDock")) {
       return <EmptyMessage />;
     }
 

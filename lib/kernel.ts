@@ -12,17 +12,17 @@ import {
 import store from "./store";
 import WatchesStore from "./store/watches";
 import OutputStore from "./store/output";
-import HydrogenKernel from "./plugin-api/hydrogen-kernel";
+import HydronKernel from "./plugin-api/hydron-kernel";
 import type {
-  HydrogenKernelMiddlewareThunk,
-  HydrogenKernelMiddleware,
-} from "./plugin-api/hydrogen-types";
+  HydronKernelMiddlewareThunk,
+  HydronKernelMiddleware,
+} from "./plugin-api/hydron-types";
 import InputView from "./input-view";
 import KernelTransport from "./kernel-transport";
 import type { ResultsCallback } from "./kernel-transport";
 import type { Kernel as JupyterlabKernel } from "@jupyterlab/services";
 
-import type { Message } from "./hydrogen";
+import type { Message } from "./hydron";
 import type { KernelspecMetadata } from "@nteract/types";
 
 function protectFromInvalidMessages(
@@ -82,17 +82,17 @@ function protectFromInvalidMessages(
 } // Adapts middleware objects provided by plugins to an internal interface. In
 // particular, this implements fallthrough logic for when a plugin defines some
 // methods (e.g. execute) but doesn't implement others (e.g. interrupt). Note
-// that HydrogenKernelMiddleware objects are mutable: they may lose/gain methods
+// that HydronKernelMiddleware objects are mutable: they may lose/gain methods
 // at any time, including in the middle of processing a request. This class also
 // adds basic checks that messages passed via the `onResults` callbacks are not
 // missing key mandatory fields specified in the Jupyter messaging spec.
 
-class MiddlewareAdapter implements HydrogenKernelMiddlewareThunk {
-  _middleware: HydrogenKernelMiddleware;
+class MiddlewareAdapter implements HydronKernelMiddlewareThunk {
+  _middleware: HydronKernelMiddleware;
   _next: MiddlewareAdapter | KernelTransport;
 
   constructor(
-    middleware: HydrogenKernelMiddleware,
+    middleware: HydronKernelMiddleware,
     next: MiddlewareAdapter | KernelTransport
   ) {
     this._middleware = middleware;
@@ -102,10 +102,10 @@ class MiddlewareAdapter implements HydrogenKernelMiddlewareThunk {
   // The return value of this method gets passed to plugins! For now we just
   // return the MiddlewareAdapter object itself, which is why all private
   // functionality is prefixed with _, and why MiddlewareAdapter is marked as
-  // implementing HydrogenKernelMiddlewareThunk. Once multiple plugin API
-  // versions exist, we may want to generate a HydrogenKernelMiddlewareThunk
+  // implementing HydronKernelMiddlewareThunk. Once multiple plugin API
+  // versions exist, we may want to generate a HydronKernelMiddlewareThunk
   // specialized for a particular plugin API version.
-  get _nextAsPluginType(): HydrogenKernelMiddlewareThunk {
+  get _nextAsPluginType(): HydronKernelMiddlewareThunk {
     if (this._next instanceof KernelTransport) {
       throw new Error(
         "MiddlewareAdapter: _nextAsPluginType must never be called when _next is KernelTransport"
@@ -198,7 +198,7 @@ export default class Kernel {
   watchesStore: WatchesStore;
   watchCallbacks: Array<(...args: Array<any>) => any> = [];
   emitter = new Emitter();
-  pluginWrapper: HydrogenKernel | null = null;
+  pluginWrapper: HydronKernel | null = null;
   transport: KernelTransport;
   // Invariant: the `._next` of each entry in this array must point to the next
   // element of the array. The `._next` of the last element must point to
@@ -236,7 +236,7 @@ export default class Kernel {
     return this.middleware[0];
   }
 
-  addMiddleware(middleware: HydrogenKernelMiddleware) {
+  addMiddleware(middleware: HydronKernelMiddleware) {
     this.middleware.unshift(
       new MiddlewareAdapter(middleware, this.middleware[0])
     );
@@ -288,7 +288,7 @@ export default class Kernel {
 
   getPluginWrapper() {
     if (!this.pluginWrapper) {
-      this.pluginWrapper = new HydrogenKernel(this);
+      this.pluginWrapper = new HydronKernel(this);
     }
 
     return this.pluginWrapper;
@@ -357,10 +357,10 @@ export default class Kernel {
   }
 
   /*
-   * Takes a callback that accepts execution results in a hydrogen-internal
+   * Takes a callback that accepts execution results in a hydron-internal
    * format and wraps it to accept Jupyter message/channel pairs instead.
    * Kernels and plugins all operate on types specified by the Jupyter messaging
-   * protocol in order to maximize compatibility, but hydrogen internally uses
+   * protocol in order to maximize compatibility, but hydron internally uses
    * its own types.
    */
   _wrapExecutionResultsCallback(onResults: (...args: Array<any>) => any) {

@@ -34,7 +34,7 @@ const Inspector = observer(({ store: { kernel } }: Props) => {
       className="native-key-bindings"
       tabIndex={-1}
       style={{
-        fontSize: atom.config.get(`Hydrogen.outputAreaFontSize`) || "inherit",
+        fontSize: atom.config.get(`Hydron.outputAreaFontSize`) || "inherit",
       }}
     >
       <RichMedia data={bundle}>

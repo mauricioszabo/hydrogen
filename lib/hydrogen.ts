@@ -1,4 +1,4 @@
-export type HydrogenCellType = "codecell" | "markdown";
+export type HydronCellType = "codecell" | "markdown";
 
 // Be more specific
 export type Message = {

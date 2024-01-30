@@ -7,27 +7,27 @@
 @import (less, optional) "../node_modules/react-table/react-table.css";
 
 // -------------- Colors ------------------
-@hydrogen-light-background: fadein(
+@hydron-light-background: fadein(
   lighten(@syntax-background-color, 40%),
   100%
 );
-@hydrogen-dark-background: fadein(lighten(@syntax-background-color, 10%), 100%);
+@hydron-dark-background: fadein(lighten(@syntax-background-color, 10%), 100%);
 
-@hydrogen-inline-background: contrast(
+@hydron-inline-background: contrast(
   @syntax-text-color,
-  @hydrogen-dark-background,
-  @hydrogen-light-background,
+  @hydron-dark-background,
+  @hydron-light-background,
   20%
 );
-@hydrogen-inline-color: lighten(@syntax-text-color, 10%);
-@hydrogen-error-color: average(@syntax-text-color, red);
+@hydron-inline-color: lighten(@syntax-text-color, 10%);
+@hydron-error-color: average(@syntax-text-color, red);
 
-.hydrogen.marker {
+.hydron.marker {
   display: flex;
   position: relative;
 }
 
-.hydrogen {
+.hydron {
   // -------------- Globals -----------------
 
   code,
@@ -75,8 +75,8 @@
   .markdown {
     font-family: @font-family;
     code {
-      color: @hydrogen-inline-color;
-      background-color: @hydrogen-inline-background;
+      color: @hydron-inline-color;
+      background-color: @hydron-inline-background;
       font-family: var(--editor-font-family);
     }
   }
@@ -89,7 +89,7 @@
     .noError {
       padding: 0;
       border: none;
-      color: @hydrogen-error-color;
+      color: @hydron-error-color;
     }
     svg {
       background-color: unset;
@@ -105,19 +105,19 @@
   }
 
   .nteract-display-area-stderr {
-    color: @hydrogen-error-color;
+    color: @hydron-error-color;
   }
 
   // ----------- Inline Output --------------
 
   .inline-container {
-    color: @hydrogen-inline-color;
-    background: @hydrogen-inline-background;
+    color: @hydron-inline-color;
+    background: @hydron-inline-background;
     border-radius: @component-border-radius;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
   }
 
-  .inline-container .hydrogen_cell_display {
+  .inline-container .hydron_cell_display {
     padding: 0 0.25em 0 0.25em;
   }
 
@@ -134,7 +134,7 @@
   .multiline-container {
     display: flex;
     border: solid 1px @base-border-color;
-    &[hydrogen-wrapoutput="true"] {
+    &[hydron-wrapoutput="true"] {
       code,
       pre {
         white-space: pre-wrap;
@@ -143,7 +143,7 @@
     }
   }
 
-  .multiline-container .hydrogen_cell_display {
+  .multiline-container .hydron_cell_display {
     padding: @component-padding;
     // Style fix for plotly toolbar
     .cell_display {
@@ -176,7 +176,7 @@
   }
 
   .multiline-container .toolbar .icon:hover {
-    color: @hydrogen-inline-color;
+    color: @hydron-inline-color;
   }
 
   // -------------- Spinner -----------------
@@ -185,7 +185,7 @@
   }
 
   .spinner > div {
-    background-color: @hydrogen-inline-color;
+    background-color: @hydron-inline-color;
     height: 100%;
     width: 2px;
     display: inline-block;
