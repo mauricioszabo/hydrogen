@@ -1,8 +1,8 @@
 # Remote kernels
 
-In addition to managing local kernels and connecting to them over ZeroMQ, Hydrogen is also able to connect to Jupyter Notebook servers. This is most useful for running code remotely (e.g. in the cloud), or in a Docker container running locally.
+In addition to managing local kernels and connecting to them over ZeroMQ, Hydron is also able to connect to Jupyter Notebook servers. This is most useful for running code remotely (e.g. in the cloud), or in a Docker container running locally.
 
-To connect to a server, add the connection information to the Hydrogen `gateways` setting. For example:
+To connect to a server, add the connection information to the Hydron `gateways` setting. For example:
 
 ```json
 [
@@ -18,9 +18,9 @@ To connect to a server, add the connection information to the Hydrogen `gateways
 
 Each entry in the gateways list needs at minimum a `name` (for displaying in the UI), and a value for `options.baseUrl`. The `options.token` should only be present if your server requires token authentication, in which case it should contain the specific token issued by your server. (Token authentication is enabled by default for Jupyter Notebook 4.3 or later). The `options` are passed directly to the [`@jupyterlab/services`](https://github.com/jupyterlab/services) npm package, which includes documentation for additional fields.
 
-After gateways have been configured, you can use the **"Hydrogen: Connect to Remote Kernel"** command. You will be prompted to select a gateway, and then given the choice to either create a new session or connect to an existing one.
+After gateways have been configured, you can use the **"Hydron: Connect to Remote Kernel"** command. You will be prompted to select a gateway, and then given the choice to either create a new session or connect to an existing one.
 
-Unlike with local kernels, Hydrogen does not kill remote kernels when it disconnects from them. This allows sharing remote kernels between Hydrogen and the Notebook UI, as well as using them for long-running processes. To clean up unused kernels, you must explicitly call the **"Hydrogen: Shutdown Kernel"** command while connected to a kernel.
+Unlike with local kernels, Hydron does not kill remote kernels when it disconnects from them. This allows sharing remote kernels between Hydron and the Notebook UI, as well as using them for long-running processes. To clean up unused kernels, you must explicitly call the **"Hydron: Shutdown Kernel"** command while connected to a kernel.
 
 ## Example with notebook server
 
@@ -46,11 +46,11 @@ jupyter notebook --generate-config
 jupyter notebook --port=8888
 ```
 
-- To run a public server, consult the [official instructions](http://jupyter-notebook.readthedocs.io/en/latest/public_server.html) for setting up certificates. Skip the steps for setting up a password: hydrogen only supports token-based authentication. Also note that hydrogen does not support self-signed certificates -- we recommend that you use Let's Encrypt or consider alternatives such as listening on localhost followed by SSH port forwarding.
+- To run a public server, consult the [official instructions](http://jupyter-notebook.readthedocs.io/en/latest/public_server.html) for setting up certificates. Skip the steps for setting up a password: hydron only supports token-based authentication. Also note that hydron does not support self-signed certificates -- we recommend that you use Let's Encrypt or consider alternatives such as listening on localhost followed by SSH port forwarding.
 
 # Running a notebook server using Docker
 
-You can use the same technique to create a notebook server in a Docker container. That would allow you to develop from Atom but with all the dependencies, autocompletion, environment, etc. of a Docker container.
+You can use the same technique to create a notebook server in a Docker container. That would allow you to develop from Pulsar but with all the dependencies, autocompletion, environment, etc. of a Docker container.
 
 **Note**: due to the way that the notebook creates sub-processes for each kernel, you have to use it in a special way, you can't run the `jupyter notebook` directly in your `Dockerfile` `CMD` section. You need to call it with an init manager such as [**tini**](https://github.com/krallin/tini) or run it from an interactive console.
 
@@ -102,7 +102,7 @@ services:
 
 - This duplicates the entrypoint & command between this and the Dockerfile - strictly speaking, you only need one of these
 
-**Note**: you will only be able to run one container using that port mapping. So, if you had another container using that port, you will have to stop that one first. Or alternatively, you can create a mapping to a new port and add that configuration in the Hydrogen settings (see below).
+**Note**: you will only be able to run one container using that port mapping. So, if you had another container using that port, you will have to stop that one first. Or alternatively, you can create a mapping to a new port and add that configuration in the Hydron settings (see below).
 
 - Now start (and build) your container with `docker-compose`:
 
@@ -125,19 +125,19 @@ docker build -t hydro .
 docker run -it --rm --name hydro -p 8888:8888 -e JUYTER_TOKEN=my_secret_token hydro
 ```
 
-## Connect Atom
+## Connect Pulsar
 
-- Add the connection information to the Hydrogen `gateways` setting, as above. If running locally, you can use `localhost` as the host of your `baseUrl`
-- In Atom, open a Python file
-- Connect to the kernel you just configured: `ctrl-shift-p` and type: `Hydrogen: Connect To Remote Kernel`
+- Add the connection information to the Hydron `gateways` setting, as above. If running locally, you can use `localhost` as the host of your `baseUrl`
+- In Pulsar, open a Python file
+- Connect to the kernel you just configured: `ctrl-shift-p` and type: `Hydron: Connect To Remote Kernel`
 - Select the kernel gateway you configured, e.g. `Remote server`
 - Select the "type of kernel" to run, there will just be the option `Python 2` or `Python 3`
 - Then select the line or block of code that you want to execute inside of your container
-- Run the code with: `ctrl-shift-p` and type: `Hydrogen: Run`
+- Run the code with: `ctrl-shift-p` and type: `Hydron: Run`
 
 ## Testing it
 
-You can test that it is actually working by installing a package in your container that you don't have locally and using it inside your container (from your Atom editor).
+You can test that it is actually working by installing a package in your container that you don't have locally and using it inside your container (from your Pulsar editor).
 
 - For example, install the Python package `markdown` in your `Dockerfile`:
 
@@ -163,7 +163,7 @@ import markdown
 markdown.version
 ```
 
-- Select the code and run it with: `ctrl-shift-p` and type `Hydrogen: Run`, you will see the code executed inline like:
+- Select the code and run it with: `ctrl-shift-p` and type `Hydron: Run`, you will see the code executed inline like:
 
 ```python
 import markdown [✓]

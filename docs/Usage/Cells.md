@@ -6,7 +6,7 @@ Cells are of three types − Code, Markdown and Raw.
 
 A code cell allows you to edit and write new code. The programming language you use depends on the [Kernel](../Installation.md#kernels) you chose to use.
 
-When the cell is run (See [Hydrogen: Run Cell](GettingStarted.md#hydrogen-run-cell)), the text is sent as code to the file's kernel, which will run the code. The results that are returned are then displayed inline or optionally in the **Output Area**. Output however could be of many forms not just text. For example, you can output [graphs/plots](Examples.md#static-plots) or [HTML](Examples.md#html).
+When the cell is run (See [Hydron: Run Cell](GettingStarted.md#hydron-run-cell)), the text is sent as code to the file's kernel, which will run the code. The results that are returned are then displayed inline or optionally in the **Output Area**. Output however could be of many forms not just text. For example, you can output [graphs/plots](Examples.md#static-plots) or [HTML](Examples.md#html).
 
 #### Markdown Cells
 
@@ -16,9 +16,9 @@ These cells contain text formatted using [**Common Markdown**](https://www.markd
 
 _Currently Not Supported_
 
-## How to create Cells in Hydrogen
+## How to create Cells in Hydron
 
-To create cells in Hydrogen, use **cell markers**. If you already have cells from a **Jupyter Notebook** (`.ipynb` file) that you would like to import, read how to [Import Notebooks](NotebookFiles.md#notebook-import).
+To create cells in Hydron, use **cell markers**. If you already have cells from a **Jupyter Notebook** (`.ipynb` file) that you would like to import, read how to [Import Notebooks](NotebookFiles.md#notebook-import).
 
 ### Cell Markers
 
@@ -106,4 +106,4 @@ and
 
 <br>
 
-##### To see how to import and export notebooks with Hydrogen visit [Notebook Import and Export](NotebookFiles.md#notebook-import-and-export)
+##### To see how to import and export notebooks with Hydron visit [Notebook Import and Export](NotebookFiles.md#notebook-import-and-export)

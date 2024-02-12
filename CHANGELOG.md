@@ -1,3 +1,3 @@
 # Changelog
 
-See: https://github.com/nteract/hydrogen/releases
+See: https://github.com/nteract/hydron/releases

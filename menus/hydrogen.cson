@@ -2,91 +2,91 @@
   {
     label: 'Packages'
     submenu: [
-      label: 'Hydrogen'
+      label: 'Hydron'
       submenu: [
         {
           label: 'Start Local Kernel'
-          command: 'hydrogen:start-local-kenel'
+          command: 'hydron:start-local-kenel'
         }
         {
           label: 'Connect to Remote Kernel'
-          command: 'hydrogen:connect-to-remote-kernel'
+          command: 'hydron:connect-to-remote-kernel'
         }
         {
           label: 'Connect to Existing Kernel'
-          command: 'hydrogen:connect-to-existing-kernel'
+          command: 'hydron:connect-to-existing-kernel'
         }
         {
           label: 'Interrupt Kernel'
-          command: 'hydrogen:interrupt-kernel'
+          command: 'hydron:interrupt-kernel'
         }
         {
           label: 'Restart Kernel'
-          command: 'hydrogen:restart-kernel'
+          command: 'hydron:restart-kernel'
         }
         {
           label: 'Shutdown Kernel'
-          command: 'hydrogen:shutdown-kernel'
+          command: 'hydron:shutdown-kernel'
         }
         {
           label: 'Toggle Kernel Monitor'
-          command: 'hydrogen:toggle-kernel-monitor'
+          command: 'hydron:toggle-kernel-monitor'
         }
         {
           label: 'Update Kernels'
-          commands: 'hydrogen:update-kernels'
+          commands: 'hydron:update-kernels'
         }
         {type: 'separator'}
         {
           label: 'Run'
-          command: 'hydrogen:run'
+          command: 'hydron:run'
         }
         {
           label: 'Run and Move Down'
-          command: 'hydrogen:run-and-move-down'
+          command: 'hydron:run-and-move-down'
         }
         {
           label: 'Run Cell'
-          command: 'hydrogen:run-cell'
+          command: 'hydron:run-cell'
         }
         {
           label: 'Run Cell and Move Down'
-          command: 'hydrogen:run-cell-and-move-down'
+          command: 'hydron:run-cell-and-move-down'
         }
         {
           label: 'Run All'
-          command: 'hydrogen:run-all'
+          command: 'hydron:run-all'
         }
         {
           label: 'Run All Above'
-          command: 'hydrogen:run-all-above'
+          command: 'hydron:run-all-above'
         }
         {type: 'separator'}
         {
           label: 'Clear Results'
-          commands: 'hydrogen:clear-results'
+          commands: 'hydron:clear-results'
         }
         {type: 'separator'}
         {
           label: 'Toggle Inspector'
-          command: 'hydrogen:toggle-inspector'
+          command: 'hydron:toggle-inspector'
         }
         {
           label: 'Toggle Output Area'
-          command: 'hydrogen:toggle-output-area'
+          command: 'hydron:toggle-output-area'
         }
         {
           label: 'Toggle Watches'
-          command: 'hydrogen:toggle-watches'
+          command: 'hydron:toggle-watches'
         }
         {type: 'separator'}
         {
           label: 'Import Notebook'
-          command: 'hydrogen:import-notebook'
+          command: 'hydron:import-notebook'
         }
         {
           label: 'Export Notebook'
-          command: 'hydrogen:export-notebook'
+          command: 'hydron:export-notebook'
         }
       ]
     ]
@@ -97,11 +97,11 @@
   '.tree-view .file .name[data-name$=\\.ipynb]': [
     {type: 'separator'}
     {
-      label: 'Hydrogen'
+      label: 'Hydron'
       submenu: [
         {
           label: 'Import Notebook'
-          command: 'hydrogen:import-notebook'
+          command: 'hydron:import-notebook'
         }
       ]
     }
@@ -111,91 +111,91 @@
   'atom-text-editor:not([mini])': [
     {type: 'separator'}
     {
-      label: 'Hydrogen'
+      label: 'Hydron'
       submenu: [
         {
           label: 'Start Local Kernel'
-          command: 'hydrogen:start-local-kenel'
+          command: 'hydron:start-local-kenel'
         }
         {
           label: 'Connect to Remote Kernel'
-          command: 'hydrogen:connect-to-remote-kernel'
+          command: 'hydron:connect-to-remote-kernel'
         }
         {
           label: 'Connect to Existing Kernel'
-          command: 'hydrogen:connect-to-existing-kernel'
+          command: 'hydron:connect-to-existing-kernel'
         }
         {
           label: 'Interrupt Kernel'
-          command: 'hydrogen:interrupt-kernel'
+          command: 'hydron:interrupt-kernel'
         }
         {
           label: 'Restart Kernel'
-          command: 'hydrogen:restart-kernel'
+          command: 'hydron:restart-kernel'
         }
         {
           label: 'Shutdown Kernel'
-          command: 'hydrogen:shutdown-kernel'
+          command: 'hydron:shutdown-kernel'
         }
         {
           label: 'Toggle Kernel Monitor'
-          command: 'hydrogen:toggle-kernel-monitor'
+          command: 'hydron:toggle-kernel-monitor'
         }
         {type: 'separator'}
         {
           label: 'Run'
-          command: 'hydrogen:run'
+          command: 'hydron:run'
         }
         {
           label: 'Run and Move Down'
-          command: 'hydrogen:run-and-move-down'
+          command: 'hydron:run-and-move-down'
         }
         {
           label: 'Run Cell'
-          command: 'hydrogen:run-cell'
+          command: 'hydron:run-cell'
         }
         {
           label: 'Run Cell and Move Down'
-          command: 'hydrogen:run-cell-and-move-down'
+          command: 'hydron:run-cell-and-move-down'
         }
         {
           label: 'Run All'
-          command: 'hydrogen:run-all'
+          command: 'hydron:run-all'
         }
         {
           label: 'Run All Above'
-          command: 'hydrogen:run-all-above'
+          command: 'hydron:run-all-above'
         }
         {type: 'separator'}
         {
           label: 'Clear Result'
-          commands: 'hydrogen:clear-result'
+          commands: 'hydron:clear-result'
         }
         {
           label: 'Clear Results'
-          commands: 'hydrogen:clear-results'
+          commands: 'hydron:clear-results'
         }
         {type: 'separator'}
         {
           label: 'Toggle Inspector'
-          command: 'hydrogen:toggle-inspector'
+          command: 'hydron:toggle-inspector'
         }
         {
           label: 'Toggle Output Area'
-          command: 'hydrogen:toggle-output-area'
+          command: 'hydron:toggle-output-area'
         }
         {
           label: 'Toggle Watches'
-          command: 'hydrogen:toggle-watches'
+          command: 'hydron:toggle-watches'
         }
         {type: 'separator'}
         {
           label: 'Import Notebook'
-          command: 'hydrogen:import-notebook'
+          command: 'hydron:import-notebook'
         }
         {
           label: 'Export Notebook'
-          command: 'hydrogen:export-notebook'
+          command: 'hydron:export-notebook'
         }
       ]
     }
